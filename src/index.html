@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.1/bundles/datastar.js"></script>
+</head>
+<body>
+  <h1 class="text-3xl font-bold">
+    welcome to k1
+  </h1>
+  <nav>Learn k1</nav>
+  <pre data-json-signals></pre>
+  <div data-signals="{ tab: 'profile' }">
+    <div class="flex gap-4 border-b mb-4">
+      <button
+        data-on:click="$tab = 'profile'"
+        data-class="{ 'border-b-2 font-bold': $tab === 'profile' }"
+        class="pb-2"
+      >
+        Interact with C
+      </button>
+
+      <button
+        data-on:click="console.log('click'); $tab = 'settings'"
+        data-class="{ 'border-b-2 font-bold': $tab === 'settings' }"
+        class="pb-2"
+      >
+        Everything is data [big anon struct/list thing, mutate it, patch it]
+      </button>
+
+      <button
+        data-on:click="$tab = 'billing'"
+        data-class="{ 'border-b-2 font-bold': $tab === 'billing' }"
+        class="pb-2"
+      >
+        Control memory (or dont) [alloc-mode and defer]
+      </button>
+
+    </div>
+
+    <!-- Panels -->
+    <div data-show="$tab === 'profile'">
+      Profile content
+    </div>
+
+    <div data-show="$tab === 'settings'">
+      Settings content
+    </div>
+
+    <div data-show="$tab === 'billing'">
+      Billing content
+    </div>
+
+  </div>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li>Functional programming (list .map / filter examples)</li>
+  </ul>
+  <pre>
+  fn main(argc: i32, argv: ptr): i32 {
+    let args = parseMainArgs(argc, argv);
+    println("Hello, World! {args}");
+    0
+  }
+  </pre>
+</body>
+</html>
